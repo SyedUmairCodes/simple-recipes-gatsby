@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/Layout"
-const recipes = () => {
+
+const Recipes = () => {
   return (
     <>
       <Layout>
@@ -10,4 +11,4 @@ const recipes = () => {
   )
 }
 
-export default recipes
+export default Recipes

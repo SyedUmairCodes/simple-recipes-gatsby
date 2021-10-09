@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/Layout"
 
-const contact = () => {
+const Contact = () => {
   return (
     <Layout>
       <main className="page">
@@ -49,4 +49,4 @@ const contact = () => {
   )
 }
 
-export default contact
+export default Contact
