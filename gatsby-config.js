@@ -3,24 +3,30 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   /* Your site config here */
-  siteMetadata: {
-    title: "Simple Recipes",
-    description: "Simple and quick cooking recipes resource",
-    author: "@SyedUmairAli",
-    person: { name: "Syed Umair Ali", age: 21 },
-    simpleData: ["item1", "item2"],
-    complexData: [
-      { name: "Syed Umair Ali", age: 21 },
-      { name: "Syed Uzair Ali", age: 12 },
-    ],
-  },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/assets/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `kd51b3ozmuka`,
+        accessToken: process.env.CONTENTFUL_API_KEY,
+      },
+    },
   ],
 }
